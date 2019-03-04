@@ -1,8 +1,5 @@
 package chat.model;
 
-import java.util.LinkedList;
-import java.util.List;
-
 public class User {
 
     private String username;
