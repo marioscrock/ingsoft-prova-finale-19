@@ -34,3 +34,9 @@ Overview della libreria JUnit per il testing di progetti in Java. Cenni alla pos
 Nella cartella `es1`è presente il codice visto durante questa esercitazione.
 - `junit-quickstart` (vedi README nella cartella);
 - `chat` project.
+
+## Lesson 2 - MVC, Socket & Serializzazione (12 Mar)
+
+## Lesson 3 - MVC & RMI (26 Mar)
+
+## Lesson 4 - Swing & JavaFX (TBA)
