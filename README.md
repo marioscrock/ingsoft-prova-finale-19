@@ -23,6 +23,7 @@ References:
   - IntelliJ for Students https://www.jetbrains.com/student/
   - Get started for Sonar https://docs.sonarqube.org/latest/setup/get-started-2-minutes/
   - Get started for Maven https://maven.apache.org/guides/getting-started/
+  - Git installazione https://git-scm.com/book/it/v1/Per-Iniziare-Installare-Git
   - GitHub Education https://education.github.com/pack
   - Git cheat sheet https://services.github.com/on-demand/downloads/github-git-cheat-sheet.pdf
   - GitHub Training https://lab.github.com/githubtraining
