@@ -4,13 +4,11 @@
 
 File contenente comandi visti nella demo in classe.
 
-#### Advices
-- Committare sempre prima di pullare.
+#### Advice
 - Pullare sempre prima di iniziare a lavorare.
-- Committare e poi pullare prima di pushare.
+- Committare, pullare e poi di pushare.
 - In caso di conflitto risolvere conflitti, committare e pushare (nel caso di dubbi coordinandosi con chi ha fatto l'altra modifica).
-- Don't Panic! (Usare comandi --force solo dopo aver attentamente capito cosa si sta facendo).
-
+- Don't Panic! (Usare comandi --force solo dopo aver capito le conseguenze).
 
 ## JUnit quickstart
 
@@ -36,7 +34,7 @@ $ java -cp .:junit-4.12.jar:hamcrest-1.3.jar org.junit.runner.JUnitCore Calculat
 
 ## Chat example
 
-Progetto Maven che implementa una semplice message chat (Basic application del pattern MVC). Esempi di tests con JUnit e Mockito.
+Progetto Maven che implementa una semplice chat (Basic application del pattern MVC). Esempi di tests con JUnit e Mockito.
 
 Per casa:
 - Rivedere il pattern `Observer`.
