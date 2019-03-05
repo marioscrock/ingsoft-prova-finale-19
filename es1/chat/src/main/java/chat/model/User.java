@@ -1,14 +1,17 @@
 package chat.model;
 
+import java.util.List;
+import java.util.LinkedList;
+
 public class User {
 
     private String username;
-    //TODO
+    private List<MessageReceivedObserver> observers;
 
     public User(String username) {
         super();
         this.username = username;
-        //TODO
+        this.observers = new LinkedList<>();
     }
 
     public String getUsername() {
@@ -19,10 +22,14 @@ public class User {
         this.username = username;
     }
 
-    //TODO register clients
+    public void listenToMessages(MessageReceivedObserver observer) {
+        observers.add(observer);
+    }
 
     public void receiveMessage(Message message) {
-        //TODO
+        for (MessageReceivedObserver observer : observers) {
+            observer.onMessage(message);
+        }
     }
 
     @Override

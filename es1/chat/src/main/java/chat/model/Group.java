@@ -15,7 +15,7 @@ public class Group {
     private String groupName;
     private Set<User> users = new HashSet<>();
     private List<Message> messages = new LinkedList<>();
-    //TODO
+    private List<GroupChangeListener> listeners = new LinkedList<>();
 
     public Group() {
         super();
@@ -25,18 +25,38 @@ public class Group {
     }
 
     public void sendMessage(Message message) throws UserNotInGroupException {
-        //TODO
+        checkUserInGroup(message.getSender());
+        messages.add(message);
+
+        for(User user: users) {
+            user.receiveMessage(message);
+        }
     }
 
     public void join(User user) throws DuplicateEntityException {
-        //TODO
+        if (users.contains(user)) {
+            throw new DuplicateEntityException("User joined twice");
+        }
+
+        users.add(user);
+
+        for(GroupChangeListener listener : listeners)
+            listener.onJoin(user);
+
     }
 
     public void leave(User user) throws UserNotInGroupException {
-        //TODO
+        checkUserInGroup(user);
+        users.remove(user);
+
+        for(GroupChangeListener listener : listeners)
+            listener.onLeave(user);
+
     }
 
-    //TODO register clients
+    public void observe(GroupChangeListener listener) {
+        listeners.add(listener);
+    }
 
     private void checkUserInGroup(User user) throws UserNotInGroupException {
         if (!users.contains(user)) {
@@ -45,7 +65,6 @@ public class Group {
     }
 
     public List<Message> messages() {
-        //NOTE new LIST!!
         return new LinkedList<>(messages);
     }
 
