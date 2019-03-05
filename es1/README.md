@@ -1,14 +1,28 @@
-# JUnit quickstart
+# Es1
 
-See https://github.com/junit-team/junit4/wiki/getting-started.
+## Github demo
 
-Compile the `Calculator` class:
+File contenente comandi visti nella demo in classe.
+
+#### Advices
+- Committare sempre prima di pullare.
+- Pullare sempre prima di iniziare a lavorare.
+- Committare e poi pullare prima di pushare.
+- In caso di conflitto risolvere conflitti, committare e pushare (nel caso di dubbi coordinandosi con chi ha fatto l'altra modifica).
+- Don't Panic! (Usare comandi --force solo dopo aver attentamente capito cosa si sta facendo).
+
+
+## JUnit quickstart
+
+Vedi https://github.com/junit-team/junit4/wiki/getting-started.
+
+Compila la classe `Calculator`:
 
 ```
 $ javac Calculator.java
 ```
 
-Compile the `CalculatorTest.java` class:
+Compila la classe `CalculatorTest.java`:
 
 ```
 $ javac -cp .:junit-4.12.jar:hamcrest-1.3.jar CalculatorTest.java
@@ -20,10 +34,10 @@ Run:
 $ java -cp .:junit-4.12.jar:hamcrest-1.3.jar org.junit.runner.JUnitCore CalculatorTest
 ```
 
-# Chat example
+## Chat example
 
-Maven project implementing a simple message chat (basic application of MVC pattern). Examples of tests with JUnit and Mockito.
+Progetto Maven che implementa una semplice message chat (Basic application del pattern MVC). Esempi di tests con JUnit e Mockito.
 
-TODO at home:
-- Review the `Observer` pattern.
-- Try to improve coverage.
+Per casa:
+- Rivedere il pattern `Observer`.
+- Cercare di migliorare il coverage.
