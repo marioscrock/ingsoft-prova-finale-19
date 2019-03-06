@@ -6,7 +6,7 @@ File contenente comandi visti nella demo in classe.
 
 #### Advice
 - Pullare sempre prima di iniziare a lavorare.
-- Committare, pullare e poi di pushare.
+- Committare, pullare e poi pushare.
 - In caso di conflitto risolvere conflitti, committare e pushare (nel caso di dubbi coordinandosi con chi ha fatto l'altra modifica).
 - Don't Panic! (Usare comandi --force solo dopo aver capito le conseguenze).
 
@@ -38,4 +38,4 @@ Progetto Maven che implementa una semplice chat (Basic application del pattern M
 
 Per casa:
 - Rivedere il pattern `Observer`.
-- Cercare di migliorare il coverage.
+- Cercare di migliorare la coverage.
