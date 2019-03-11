@@ -1,6 +1,6 @@
 # Socket programming
 
-Questa cartella contiene esempi su socket programming. Durante l'esercitazione partiremo dal codice già uploadato: è consigliato *scaricare la cartella come zip o sincronizzare la repo con git clone* per martedì 11.
+Questa cartella contiene esempi su socket programming. Durante l'esercitazione partiremo dal codice già uploadato: è consigliato **scaricare la cartella come zip o sincronizzare la repo con git clone per martedì 12**.
 
 # Trivial examples
 
