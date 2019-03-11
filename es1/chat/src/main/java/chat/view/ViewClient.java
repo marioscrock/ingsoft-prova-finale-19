@@ -1,15 +1,24 @@
 package chat.view;
 
-public class ViewClient {
+import chat.model.GroupChangeListener;
+import chat.model.Message;
+import chat.model.MessageReceivedObserver;
+import chat.model.User;
 
-    public void displayMessage(String message) {
+public class ViewClient implements MessageReceivedObserver, GroupChangeListener {
+
+    @Override
+    public void onMessage(Message message) {
         System.out.println(message);
     }
 
-    public void displayGroupChange(String group, String user, boolean join) {
-        if(join)
-            System.out.println("User " + user + " joins the group " + group);
-        else
-            System.out.println("User " + user + " leaves the group " + group);
+    @Override
+    public void onJoin(User user) {
+        System.out.println("User " + user + " joins the group");
+    }
+
+    @Override
+    public void onLeave(User user) {
+        System.out.println("User " + user + " leaves the group");
     }
 }

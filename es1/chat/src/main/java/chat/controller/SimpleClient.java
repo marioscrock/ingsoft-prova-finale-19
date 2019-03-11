@@ -3,37 +3,30 @@ package chat.controller;
 import chat.model.*;
 import chat.view.ViewClient;
 
-public class SimpleClient implements MessageReceivedObserver, GroupChangeListener {
+public class SimpleClient {
 
     private User currentUser;
     private Group currentGroup;
     private ViewClient vc;
 
-    public SimpleClient(User user, Group group, ViewClient vc) {
-        this.currentUser = user;
-        this.currentGroup = group;
+    public SimpleClient(ViewClient vc) {
         this.vc = vc;
-
-        user.listenToMessages(this);
-        group.observe(this);
     }
 
-    @Override
-    public void onMessage(Message message) {
-        vc.displayMessage(message.toString());
+    public void setUser(User user) {
+        if (user != null) {
+            this.currentUser = user;
+            user.listenToMessages(vc);
+        }
     }
 
-    @Override
-    public void onJoin(User user) {
-        vc.displayGroupChange(currentGroup.getName(),
-                user.getUsername(), true);
-
-    }
-
-    @Override
-    public void onLeave(User user) {
-        vc.displayGroupChange(currentGroup.getName(),
-                user.getUsername(), false);
+    public void setGroup(Group group) {
+        if (currentUser != null) {
+            if (!group.in(currentUser))
+                group.join(currentUser);
+            this.currentGroup = group;
+            group.observe(vc);
+        }
     }
 
 }

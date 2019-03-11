@@ -26,8 +26,9 @@ public class SimpleClientTest {
         mark = new User("mark");
 
         vc = mock(ViewClient.class);
-        group.join(john);
-        cJohn = new SimpleClient(john, group, vc);
+        cJohn = new SimpleClient(vc);
+        cJohn.setUser(john);
+        cJohn.setGroup(group);
     }
 
     @Test
@@ -37,20 +38,20 @@ public class SimpleClientTest {
         Message m = new Message(group, mark, "hello");
         group.sendMessage(m);
 
-        verify(vc).displayMessage(m.toString());
+        verify(vc).onMessage(m);
     }
 
     @Test
     public void joinTest() {
         group.join(mark);
-        verify(vc).displayGroupChange(group.getName(), mark.getUsername(),true);
+        verify(vc).onJoin(mark);
     }
 
     @Test
     public void leaveTest() {
         group.join(mark);
         group.leave(mark);
-        verify(vc).displayGroupChange(group.getName(), mark.getUsername(),false);
+        verify(vc).onLeave(mark);
     }
 
 }
