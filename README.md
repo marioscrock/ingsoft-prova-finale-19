@@ -38,6 +38,13 @@ Nella cartella `es1`è presente il codice visto durante questa esercitazione (ve
 
 ## Lesson 2 - MVC, Socket & Serializzazione (12 Mar)
 
+La lezione ha tre principali obiettivi:
+- Comprendere come implementare comunicazione _client-server tramite socket_ in Java
+- Comprendere nel dettaglio come funziona il meccanismo di _(de)serializzazione_
+- Comprendere il pattern _MVC_ e come introdurre un network layer
+
+Nella cartella `es2` è presente il codice visto durante questa esercitazione (vedi [README](https://github.com/marioscrock/ingsoft-prova-finale-19/blob/master/es2/README.md) nella cartella e slides su Beep).
+
 ## Lesson 3 - MVC & RMI (26 Mar)
 
 ## Lesson 4 - Swing & JavaFX (TBA)
