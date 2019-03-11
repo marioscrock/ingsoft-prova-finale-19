@@ -38,6 +38,8 @@ Nella cartella `es1`è presente il codice visto durante questa esercitazione (ve
 
 ## Lesson 2 - MVC, Socket & Serializzazione (12 Mar)
 
+Durante l'esercitazione partiremo dal codice già uploadato: è consigliato **scaricare la cartella `es2` come zip o sincronizzare la repo con git clone per martedì 12**.
+
 La lezione ha tre principali obiettivi:
 - Comprendere come implementare comunicazione _client-server tramite socket_ in Java
 - Comprendere nel dettaglio come funziona il meccanismo di _(de)serializzazione_
