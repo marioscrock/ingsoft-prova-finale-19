@@ -32,7 +32,7 @@ References:
   
 Overview della libreria JUnit per il testing di progetti in Java. Cenni alla possibilità di utilizzare [Mockito](http://site.mockito.org/) per svolgere unit testing sfruttando un mock degli oggetti che hanno dipendenze.
 
-Nella cartella `es1`è presente il codice visto durante questa esercitazione (vedi README nella cartella).
+Nella cartella `es1`è presente il codice visto durante questa esercitazione (vedi [README](https://github.com/marioscrock/ingsoft-prova-finale-19/blob/master/es1/README.md) nella cartella).
 - `junit-quickstart`;
 - `chat` project.
 
