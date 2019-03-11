@@ -1,12 +1,15 @@
 package chat.model;
 
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.Serializable;
 import java.util.List;
 import java.util.LinkedList;
 
-public class User {
+public class User implements Serializable {
 
     private String username;
-    private List<MessageReceivedObserver> observers;
+    private transient List<MessageReceivedObserver> observers;
 
     public User(String username) {
         super();
@@ -30,6 +33,12 @@ public class User {
         for (MessageReceivedObserver observer : observers) {
             observer.onMessage(message);
         }
+    }
+
+    private void readObject(ObjectInputStream ois) throws IOException, ClassNotFoundException {
+        ois.defaultReadObject();
+        // upon deserialization, observers are reset
+        observers = new LinkedList<>();
     }
 
     @Override

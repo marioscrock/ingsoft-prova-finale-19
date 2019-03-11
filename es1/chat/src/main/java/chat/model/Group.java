@@ -3,19 +3,22 @@ package chat.model;
 import chat.exceptions.DuplicateEntityException;
 import chat.exceptions.UserNotInGroupException;
 
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
 
-public class Group {
+public class Group implements Serializable {
 
     private static int uniqueGroupID = 0;
     private int groupID;
     private String groupName;
     private Set<User> users = new HashSet<>();
     private List<Message> messages = new LinkedList<>();
-    private List<GroupChangeListener> listeners = new LinkedList<>();
+    private transient List<GroupChangeListener> listeners = new LinkedList<>();
 
     public Group() {
         super();
@@ -85,6 +88,12 @@ public class Group {
     }
 
     public boolean in(User user) {return users.contains(user);}
+
+    private void readObject(ObjectInputStream ois) throws IOException, ClassNotFoundException {
+        ois.defaultReadObject();
+        // upon deserialization, observers are reset
+        listeners = new LinkedList<>();
+    }
 
     @Override
     public boolean equals(Object o) {
