@@ -10,7 +10,8 @@ Nella cartella test invece è presente una serie di test per comprendere nel det
 # The Chat - Distributed MVC con Socket
 
 Il progetto chat contiene un esempio completo di distributed MVC con socket.
-Il progetto riutilizza il modello visto per la prima esercitazione; è quindi fondamentale, prima di eseguirlo, runnare il progetto nella cartella `es1` con il goal `mvn install`per installare il `jar` nella repository locale. Nel caso di problemi è possibile rimuovere la dipendenza e copiare all'interno del progetto il package `model` dal progetto in `es1/chat`.
+
+Il progetto riutilizza il modello visto per la prima esercitazione (indicato come dipendenza nel file `pom.xml`); è quindi fondamentale, prima di eseguirlo, buildare il progetto Maven nella cartella `es1` con il goal `mvn install`per installare il `jar` nella repository locale. Nel caso di problemi è possibile rimuovere la dipendenza e copiare all'interno del progetto il package `model` dal progetto in `es1/chat`.
 
 Nell'esempio, per permettere la distribuzione, creiamo due controller che comunicano tra loro tramite socket --- `ClientController` e `ServerController` --- e implementiamo un meccanismo di request/response per gestire le comunicazioni
 tra la view e il modello.
