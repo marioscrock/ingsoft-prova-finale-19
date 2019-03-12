@@ -15,11 +15,14 @@ public class SessionDTO implements Serializable {
     }
 
     private void writeObject(ObjectOutputStream oos) throws IOException {
-        oos.defaultWriteObject();  oos.writeInt(data);  System.out.println("session serialized");
+        oos.defaultWriteObject();
+        oos.writeInt(data);
+        System.out.println("session serialized");
     }
 
     private void readObject(ObjectInputStream ois) throws IOException,  ClassNotFoundException {
-        ois.defaultReadObject();  data = ois.readInt();
+        ois.defaultReadObject();
+        data = ois.readInt();
         activationTime = System.currentTimeMillis();  System.out.println("session deserialized");
     }
 

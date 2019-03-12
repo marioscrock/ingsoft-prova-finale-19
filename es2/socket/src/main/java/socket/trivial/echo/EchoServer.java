@@ -25,7 +25,39 @@ public class EchoServer implements Closeable {
     }
 
     public void handleConnection(Socket clientConnection) throws IOException {
-        // TODO
+        InputStream is = null;
+        OutputStream os = null;
+        try {
+            // getting the streams for communication
+            is = clientConnection.getInputStream();
+            os = clientConnection.getOutputStream();
+
+            // Decorator pattern ;)
+            // BufferedReader is useful because it offers readLine
+            BufferedReader in = new BufferedReader(new InputStreamReader(is));
+            PrintWriter out = new PrintWriter(os);
+
+            String msg;
+
+            do {
+                msg = in.readLine();
+
+                if (msg != null && !msg.startsWith("quit")) {
+                    System.out.println("<<< " + clientConnection.getRemoteSocketAddress() + ": " + msg);
+                    out.println(">>> " + msg);
+                    // when you call flush you really send what
+                    // you added to the buffer with println.
+                    out.flush();
+                }
+            } while (msg != null && !msg.startsWith("quit"));
+
+        } finally {
+            if (is != null && os != null) {
+                is.close();
+                os.close();
+            }
+            clientConnection.close();
+        }
     }
 
     public void lifeCycle() throws IOException {

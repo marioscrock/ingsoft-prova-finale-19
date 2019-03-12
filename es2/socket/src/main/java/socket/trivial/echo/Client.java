@@ -17,16 +17,18 @@ public class Client implements Closeable {
     }
 
     public void init() throws IOException {
-        //TODO
+        connection = new Socket(host, port);
+        in = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+        // auto-flushing, yeah B)
+        out = new PrintWriter(connection.getOutputStream(), true);
     }
 
     public String receive() throws IOException {
-        //TODO
-        return null;
+        return in.readLine();
     }
 
     public void send(String message) {
-        //TODO
+        out.println(message);
     }
 
     public void close() throws IOException {
