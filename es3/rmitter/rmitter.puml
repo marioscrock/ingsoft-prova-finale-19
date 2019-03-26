@@ -1,0 +1,139 @@
+@startuml
+
+
+interface Serializable
+interface Remote
+class UnicastRemoteObject
+
+package rmi.rmitter {
+
+package model {
+
+class Database <<Singleton>> {
+{static} - instance: Database
+- usersByName: Map<String, User>
+- usersByToken: Map<String, User>
+- hashtags: Map<String, Hashtag>
++ <<sync>> getLoggedUser(String token): User
++ <<sync>> getOrCreateHashtag(String ht): Hashtag
++ <<sync>> login(String username): String
++ <<sync>> logout(String token)
+}
+
+class Post {
+- content: String
+- poster: User
+- taggedUsers: List<User>
+- hashtags: List<Hashtag>
++ <<constructor>> Post(User poster, String content)
++ getContent(): String
++ getPoster(): String
++ getTaggedUsers(): List<User>
++ getHashtags(): List<Hashtag>
+}
+
+class User {
+- username: String
+- followers: List<User>
+- numberOfPosts: int
+- <<transient>> userObservers: List<UserObserver>
+- <<transient>> feedObservers: List<FeedObserver>
++ <<constructor>> User(String username)
++ observeUser(UserObserver observer)
++ observePosts(FeedObserver observer)
++ getUsername(): String
++ getPostCount(): int
++ getNumberOfFollowers(): int
++ follow(User user)
++ mention(Post post)
++ followeePosted(Post post)
++ post(String content): Post
+}
+
+class Hashtag {
+- tag:String
+- <<transient>> observers: List<FeedObserver>
++ <<constructor>> Hashtag(String tag)
++ observe(FeedObserver observer)
++ usedIn(Post post)
+}
+
+interface FeedObserver {
+onFolloweePost(Post post)
+onHashtagUse(Hashtag hashtag, Post post)
+}
+
+interface UserObserver {
+onNewPost(Post post)
+onMention(Post post)
+onFollower(User follower)
+}
+
+Remote <|--- FeedObserver
+Remote <|--- UserObserver
+Serializable <|... Post
+Serializable <|... User
+Serializable <|... Hashtag
+Database --> "many" User
+Database --> "many" Hashtag
+}
+
+package control {
+
+interface RemoteController {
++ me(String token)
++ followUser(String token, String usernameFollowee)
++ login(String username, RemoteBaseView view): String
++ observeUser(String token, String username,
+UserObserver userObserver, FeedObserver feedObserver)
++ logout(String token)
++ post(String token, String content): Post
++ followHashtag(String token, String hashtag,
+FeedObserver observer)
+}
+
+class Controller #FA8072 {
+- views: Map<String, RemoteBaseView>
+- <<transient>> database: Database
+}
+
+Remote <|--- RemoteController
+RemoteController <|... Controller
+UnicastRemoteObject <|--- Controller
+}
+
+package view {
+
+interface RemoteBaseView {
++ error(String message)
++ ack(String message)
+}
+
+class TextView {
+- in: Scanner
+- controller: RemoteController
+- token: String
++ <<constructor>> TextView(RemoteController controller)
++ run()
+}
+
+Remote <|--- RemoteBaseView
+UserObserver <|--- RemoteBaseView
+FeedObserver <|--- RemoteBaseView
+RemoteBaseView <|... TextView
+UnicastRemoteObject <|--- TextView
+
+}
+
+RemoteController --> "many" TextView
+
+'class Client #FA8072
+'class Server #FA8072
+
+'Client --> TextView : instantiate
+'Server --> RemoteController : instantiate
+'Server --> RemoteController : "publish on RMI register"
+
+}
+
+@enduml

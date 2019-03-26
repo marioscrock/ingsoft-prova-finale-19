@@ -1,0 +1,57 @@
+@startuml
+
+interface Serializable
+
+package rmi.rmitter.model {
+
+class Database <<Singleton>> {
+{static} - instance: Database
+- usersByName: Map<String, User>
+- usersByToken: Map<String, User>
+- hashtags: Map<String, Hashtag>
++ <<sync>> getLoggedUser(String token): User
++ <<sync>> getOrCreateHashtag(String ht): Hashtag
++ <<sync>> login(String username): String
++ <<sync>> logout(String token)
+}
+
+class Post {
+- content: String
+- poster: User
+- taggedUsers: List<User>
+- hashtags: List<Hashtag>
++ <<constructor>> Post(User poster, String content)
++ getContent(): String
++ getPoster(): String
++ getTaggedUsers(): List<User>
++ getHashtags(): List<Hashtag>
+}
+
+class User {
+- username: String
+- followers: List<User>
+- numberOfPosts: int
++ <<constructor>> User(String username)
++ getUsername(): String
++ getPostCount(): int
++ getNumberOfFollowers(): int
++ follow(User user)
++ mention(Post post)
++ followeePosted(Post post)
++ post(String content): Post
+}
+
+class Hashtag {
+- tag:String
++ <<constructor>> Hashtag(String tag)
++ usedIn(Post post)
+}
+
+Serializable <|... Post
+Serializable <|... User
+Serializable <|... Hashtag
+Database --> "many" User
+Database --> "many" Hashtag
+}
+
+@enduml

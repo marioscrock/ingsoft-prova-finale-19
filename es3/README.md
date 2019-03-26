@@ -46,3 +46,34 @@ class loading](https://docs.oracle.com/javase/8/docs/technotes/guides/rmi/codeba
 class loading](https://docs.oracle.com/javase/8/docs/technotes/guides/rmi/codebase.html) dalla codebase indicata dal client.
 
 Il file `warehouse.png` fornisce un diagramma che descrive le classi principali del progetto (_disclaimer_: il file non è conforme alla notazione UML, i packages sono usati per rappresentare il deployment simulato, le classi relative ad RMI sono mostrate per rappresentare il meccanismo di RMI ma non appartengono al source code).
+
+## RMItter (RMI Twitter)
+
+La cartella `rmitter` contiene un'implementazione semplificata di Twitter basata sull'utilizzo di RMI.
+I requisiti della nostra implementazione sono:
+  + Utenti possono creare post
+  + Gli utenti sono identificati dal loro username
+  + I post possono contenere hashtags (iniziano con #) e mentions di altri utenti (@username)
+  + Gli utenti possono _seguire_ altri utenti e devono essere notificati sui loro nuovi post
+  + Gli uteni possono _seguire_ hashtags e devono essere notificati su ogni post che contenga lo specifico hashtag seguito
+  + Implementazione Client-Server, client associato ad un singolo utente con un'interfaccia testuale
+
+L'implementazione segue il pattern MVC separando la View nel lato-client dal Model e Controller nel lato-server. Si noti che:
+
+  + Il Model contiene solo `Serializable` objects (e.g. User) che sono forniti alla View negli updates. Gli oggetti sono serializzati e non remoti, quindi possono solo essere querati e ogni modifica applicata ad essi non ha effetto lato-server. 
+  + Il Controller è esposto come oggetto remoto e mappa le chiamate RMI della view a chiamate locali sul modello. 
+  + La View è observer remoto del modello (permette chiamate remote, ma non è esposto sul registry e _si passa_ al controller al momento del login).
+
+L'immagine sottostante rappresenta l'architettura di `rmitter`:
+
+![rmitter architecture](rmitter.png)
+
+Nella cartella `rmitter` sono presenti gli uml del Model e quello dell'intero progetto.
+
+Si noti che:
+  + il registry RMI è lanciato all'interno del programma Server
+  + Client e Server utilizzano entrambi la stessa codebase locale
+  + l'implementazione è molto semplice se comparata a quella vista nell'`es2` per l'esempio `socket`, grazie al networking layer offerto da RMI.
+
+#### TODO
+Per comprendere meglio l'esempio si può provare ad estendere il progetto abilitando lo storage dei posts lato server e aggiungendo la possibilità per un utente di chiedere la `history` dei suoi ultimi `n` posts (comando da CLI `:history n`).
