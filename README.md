@@ -1,7 +1,5 @@
 # Esercitazioni Prova Finale (Ingegneria del Software) 2019
 
-__TODO__ Durante l'esercitazione partiremo dal codice già uploadato: è consigliato **scaricare la cartella `es3` come zip o sincronizzare la repo con git clone per martedì 26**.
-
 Repository esercitazioni del corso: Prova Finale (Ingegneria del Software) 2019
 Prof. G. Cugola - Esercitazioni M. Scrocca
 
