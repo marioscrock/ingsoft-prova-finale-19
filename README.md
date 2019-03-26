@@ -1,5 +1,7 @@
 # Esercitazioni Prova Finale (Ingegneria del Software) 2019
 
+__TODO__ Durante l'esercitazione partiremo dal codice già uploadato: è consigliato **scaricare la cartella `es3` come zip o sincronizzare la repo con git clone per martedì 26**.
+
 Repository esercitazioni del corso: Prova Finale (Ingegneria del Software) 2019
 Prof. G. Cugola - Esercitazioni M. Scrocca
 
@@ -46,5 +48,12 @@ La lezione ha tre principali obiettivi:
 Nella cartella `es2` è presente il codice visto durante questa esercitazione (vedi [README](https://github.com/marioscrock/ingsoft-prova-finale-19/blob/master/es2/README.md) nella cartella e slides su Beep).
 
 ## Lesson 3 - MVC & RMI (26 Mar)
+
+La lezione ha tre principali obiettivi:
+- Comprendere come implementare un meccanismo di chiamate remote di metodo tramite _RMI_ in Java
+- Comprendere come funziona il meccanismo di _RMI_ in un deployment distribuito e come utilizzare il _dynamic class loading_
+- Riprendere il pattern _MVC_ e mostrare come RMI permetta di introdurre facilmente un network layer
+
+Nella cartella `es3` è presente il codice visto durante questa esercitazione (vedi [README](https://github.com/marioscrock/ingsoft-prova-finale-19/blob/master/es3/README.md) nella cartella e slides su Beep).
 
 ## Lesson 4 - Swing & JavaFX (TBA)
