@@ -6,13 +6,17 @@ import java.rmi.registry.Registry;
 public class Server {
     public static void main(String[] args) throws RemoteException, AlreadyBoundException {
 
-        //TODO
+        System.setProperty("java.security.policy", "stupid.policy");
+        System.setSecurityManager(new SecurityManager());
 
         System.out.println("Creating new warehouse");
-        //TODO
+        WarehouseImpl warehouse = new WarehouseImpl(new Book("BackupBook",
+                "424242", 66.99));
+        warehouse.add("toaster", new Product("SuperToaster", 23.95));
 
         System.out.println("Binding");
-        //TODO
+        Registry registry = LocateRegistry.getRegistry();
+        registry.rebind("warehouse", warehouse);
 
         System.out.println("Waiting for invocations...");
     }

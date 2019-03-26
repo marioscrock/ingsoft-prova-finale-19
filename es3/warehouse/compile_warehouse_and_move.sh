@@ -14,7 +14,7 @@ if [[ $? -eq 0 ]]; then
   cp $basedir/WarehouseImpl.class ./classloading/server/
   cp $basedir/Book.class ./classloading/server/
 
-  # codebase
+  # common
   cp $basedir/Warehouse.class ./classloading/common/
   cp $basedir/Product.class ./classloading/common/
 fi
