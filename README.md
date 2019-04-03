@@ -6,6 +6,9 @@ Prof. G. Cugola - Esercitazioni M. Scrocca
 Le slides delle esercitazioni sono disponibili su Beep. 
 Per domande o bug relativi al codice nella repository usare le Issues su Github, per tutte le altre domande utilizzare [Piazza](http://piazza.com/polimi.it/spring2019/085923/home).
 
+Ogni cartella contiene il materiale relativo alla specifica esercitazione. 
+Nella cartella `java8` sono presenti alcuni utili esempi riguardo le novità introdotte in Java 8: programmazione funzionale, definizione Predicates, novità per le Interfaces.
+
 ## Lesson 1 - Tools & Testing (5 Mar)
 
 La lezione ha due principali obiettivi:
