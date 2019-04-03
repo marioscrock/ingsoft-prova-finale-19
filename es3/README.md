@@ -68,7 +68,7 @@ L'immagine sottostante rappresenta l'architettura di `rmitter`:
 
 ![rmitter architecture](rmitter.png)
 
-Nella cartella `rmitter` sono presenti gli uml del Model e quello dell'intero progetto.
+Nella cartella `rmitter` sono presenti gli UML diagrams del Model e quello dell'intero progetto.
 
 Si noti che:
   + il registry RMI è lanciato all'interno del programma Server
