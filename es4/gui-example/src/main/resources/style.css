@@ -1,0 +1,19 @@
+/* by id */
+#state {
+   -fx-font-size: 20px;
+   -fx-font-weight: bold;
+}
+
+/* by class */
+.center {
+  -fx-alignment: center;
+}
+
+.my-color-snap {
+  -fx-fill: green;
+}
+
+.scene-text {
+  -fx-fill: red;
+  -fx-text-alignment: center;
+}
