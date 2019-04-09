@@ -6,12 +6,9 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
-public class HelloFX extends Application {
+public class HelloFX {
 
-    @Override
-    public void start(Stage primaryStage) {
-        //TODO
-    }
+    //TODO
 
     public static void main(String[] args) {
 

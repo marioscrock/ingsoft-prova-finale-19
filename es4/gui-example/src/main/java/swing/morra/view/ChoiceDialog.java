@@ -29,15 +29,8 @@ public class ChoiceDialog extends JDialog {
 		mainPanel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 		choices = new JComboBox<Choice>(Choice.values());
 		
-		confirmButton = new JButton("Conferma");
-		confirmButton.addActionListener( e -> {
-					view.processChoice((Choice) choices.getSelectedItem());
-					ChoiceDialog.this.dispose();
-				});
+		//TODO
 
-		mainPanel.add(choices, BorderLayout.PAGE_START);
-		mainPanel.add(confirmButton, BorderLayout.PAGE_END);
-		add(mainPanel);
 		pack();
 		setMinimumSize(new Dimension(300, 30));
 		setVisible(true);

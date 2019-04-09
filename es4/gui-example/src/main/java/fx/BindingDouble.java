@@ -1,3 +1,4 @@
+/* Example inspired by https://www.slideshare.net/skrb/8-true-stories-about-javafx */
 package fx;
 
 import javafx.application.*;
