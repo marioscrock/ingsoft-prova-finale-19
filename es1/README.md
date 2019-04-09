@@ -1,4 +1,4 @@
-# Es1
+# Lesson 1 - Tools & Testing
 
 ## Github demo
 

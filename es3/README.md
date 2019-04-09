@@ -1,4 +1,4 @@
-# RMI
+# Lesson 3 - MVC & RMI
 
 Questa cartella contiene esempi su RMI (Remote Method Invocation).
 

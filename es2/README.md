@@ -1,4 +1,4 @@
-# Socket programming
+# Lesson 2 - MVC, Socket & Serializzazione
 
 Questa cartella contiene esempi su socket programming.
 
