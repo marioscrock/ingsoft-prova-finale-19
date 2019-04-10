@@ -59,7 +59,7 @@ La lezione ha tre principali obiettivi:
 
 Nella cartella `es3` è presente il codice visto durante questa esercitazione (vedi [README](https://github.com/marioscrock/ingsoft-prova-finale-19/blob/master/es3/README.md) nella cartella e slides su Beep).
 
-## Lesson 4 - Graphical User Interfaces (TBA)
+## Lesson 4 - Graphical User Interfaces (21 Mag)
 
 La lezione ha quattro principali obiettivi:
 
