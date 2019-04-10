@@ -56,4 +56,4 @@ La lezione ha tre principali obiettivi:
 
 Nella cartella `es3` è presente il codice visto durante questa esercitazione (vedi [README](https://github.com/marioscrock/ingsoft-prova-finale-19/blob/master/es3/README.md) nella cartella e slides su Beep).
 
-## Lesson 4 - Swing & JavaFX (TBA)
+## Lesson 4 - Swing & JavaFX (21 Mag)
