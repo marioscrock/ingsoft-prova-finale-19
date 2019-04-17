@@ -17,5 +17,7 @@ Nell'esempio, per permettere la distribuzione, creiamo due controller che comuni
 
 E' __altamente consigliato__ studiare approfonditamente l'esempio cercando di comprendere la modellazione del network layer e i pattern utilizzati (hint: [command](https://en.wikipedia.org/wiki/Command_pattern) e [visitor](https://en.wikipedia.org/wiki/Visitor_pattern) patterns).
 
+Il file [`chat-socket`](chat-socket.png) rappresenta un diagramma (non conforme alla notazione UML per un _class diagram_) che può essere utile per comprendere le classi principali del progetto e le loro dipendenze/interazioni.
+
 
 
