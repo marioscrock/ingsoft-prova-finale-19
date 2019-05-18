@@ -70,4 +70,4 @@ La lezione ha quattro principali obiettivi:
 
 Nella cartella `es4` è presente il codice visto durante questa esercitazione (vedi [README](https://github.com/marioscrock/ingsoft-prova-finale-19/blob/master/es4/README.md) nella cartella e slides su Beep).
 
-**NOTA** Le JDK precedenti Java 11 includono JavaFX di default. Le JDK relative a Java 11 e versioni successive non includono JavaFX che deve essere [aggiunto come dependency in Maven](https://github.com/openjfx/samples/blob/master/HelloFX/Maven/hellofx/pom.xml).
+**NOTA** Le JDK precedenti Java 11 includono JavaFX di default. Le JDK relative a Java 11 e versioni successive non includono JavaFX che deve essere [aggiunto come dependency in Maven](https://openjfx.io/openjfx-docs/#maven).
