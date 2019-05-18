@@ -22,7 +22,7 @@ Non voglio fare commit di tutto, e.g. file che derivano dalla compilazione o fil
 
 ```
 git commit -m "First commit"
-git status -> .gitignore NOT committed because not staged
+git status # .gitignore NOT committed because not staged
 
 git add .
 git status

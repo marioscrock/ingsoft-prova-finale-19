@@ -51,7 +51,7 @@ Il file `warehouse.png` fornisce un diagramma che descrive le classi principali 
 
 La cartella `rmitter` contiene un'implementazione semplificata di Twitter basata sull'utilizzo di RMI.
 I requisiti della nostra implementazione sono:
-  + Utenti possono creare post
+  + Gli utenti possono creare post
   + Gli utenti sono identificati dal loro username
   + I post possono contenere hashtags (iniziano con #) e mentions di altri utenti (@username)
   + Gli utenti possono _seguire_ altri utenti e devono essere notificati sui loro nuovi post
