@@ -31,27 +31,80 @@ public class SwingGui extends UnicastRemoteObject
     }
 
     public void init() {
-        //TODO
+        mainFrame = new JFrame("RMItter");
+        mainFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+
+        textArea = new JTextArea(10, 10);
+        textArea.setEditable(false);
+        textArea.setLineWrap(true);
+        textArea.setWrapStyleWord(true);
+
+        tokenTextField = new JTextField(10);
+        usernameTextField = new JTextField(10);
+        postTextField = new JTextField(20);
+        loginButton = new JButton("Use token");
+
+        JScrollPane scrollPane = new JScrollPane(textArea);
+
+        JPanel northPanel = new JPanel();
+        northPanel.add(usernameTextField);
+        northPanel.add(tokenTextField);
+        northPanel.add(loginButton);
+
+        mainFrame.setLayout(new BorderLayout());
+        mainFrame.add(northPanel, BorderLayout.NORTH);
+        mainFrame.add(scrollPane, BorderLayout.CENTER);
+        mainFrame.add(postTextField, BorderLayout.SOUTH);
+
+        // ---- listeners
+        loginButton.addActionListener(this);
+        postTextField.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyPressed(KeyEvent e) {
+                if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+                    onEnterPressed();
+                }
+            }
+        });
     }
 
     public void draw() {
-        //TODO
+        mainFrame.pack();
+        mainFrame.setVisible(true);
     }
 
     private void writeToTextArea(String msg) {
         textArea.append(msg + "\n");
         //Make sure the new text is visible, even if there
         //was a selection in the text area.
-        //TODO
+        textArea.setCaretPosition(textArea.getDocument().getLength());
     }
 
     @Override
     public void actionPerformed(ActionEvent event) {
-        //TODO
+        String username = usernameTextField.getText();
+        String token = tokenTextField.getText();
+        try {
+            controller.observeUser(token, username, this, this);
+            // disable loginButton if everything went well
+            loginButton.setEnabled(false);
+            writeToTextArea(">>> [OK]: logged as " + username);
+            // ok, set the token for future calls
+            this.token = token;
+        } catch (RemoteException ex) {
+            writeToTextArea(">>> [ERROR]: " + ex.getCause().getMessage());
+        }
     }
 
     private void onEnterPressed() {
-        //TODO
+        if (token != null) {
+            try {
+                controller.post(token, postTextField.getText());
+            } catch (RemoteException e) {
+                writeToTextArea(">>> [ERROR]: " + e.getCause().getMessage());
+            }
+        }
+        postTextField.setText(""); // clear text
     }
 
     // ---------------------------------- Remote events
@@ -84,6 +137,13 @@ public class SwingGui extends UnicastRemoteObject
     }
 
     public static void main(String[] args) throws Exception {
-        //TODO
+        Registry registry = LocateRegistry.getRegistry();
+
+        // gets a reference for the remote controller
+        final RemoteController controller = (RemoteController) registry.lookup("controller");
+        SwingGui gui = new SwingGui(controller);
+        gui.init();
+
+        SwingUtilities.invokeLater(gui::draw);
     }
 }

@@ -55,7 +55,8 @@ public class Layout {
 
         p1.add(new JLabel("Panel 1"));
         p4.add(new JButton("Button1"), BorderLayout.EAST);
-        p4.add(new JButton("Button2"), BorderLayout.WEST);  p2.add(p3);
+        p4.add(new JButton("Button2"), BorderLayout.WEST);
+        p2.add(p3);
         p2.add(p4);
         p3.add(new JLabel("Panel 3"));
         f.add(p1, BorderLayout.NORTH);

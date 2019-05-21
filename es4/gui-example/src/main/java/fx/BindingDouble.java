@@ -34,7 +34,16 @@ public class BindingDouble extends Application {
         slider2.setShowTickLabels(true);
         slider2.setShowTickMarks(true);
 
-        //TODO
+        //Bind value to the first slider bidirectionally
+        value.bindBidirectional(slider.valueProperty());
+        //Bind value to progressBar
+        bar.progressProperty().bind(value);
+        //Bind slider2 to value with custom logic
+        slider2.valueProperty()
+                .bind(Bindings.subtract(100.0,
+                        Bindings.multiply(value, 100.0)));
+        //Init value to show bidirectional binding
+        value.set(0.6);
 
         VBox pane = new VBox(10, slider, bar, slider2);
 

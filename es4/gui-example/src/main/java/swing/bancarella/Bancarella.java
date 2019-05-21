@@ -5,13 +5,14 @@ import swing.bancarella.Prodotto.Tipo;
 import java.util.ArrayList;
 import java.util.Observable;
 
-public class Bancarella {
+public class Bancarella extends Observable {
 	
 	private ArrayList<Prodotto> prodotti = new ArrayList<Prodotto>();
 	
 	public void addProdotto(Prodotto p){
 		prodotti.add(p);
-		//TODO
+		setChanged();
+		notifyObservers();
 	}
 	
 	public void compraProdotto(Tipo tipo){
@@ -21,7 +22,8 @@ public class Bancarella {
 				break;
 			}
 		}
-		//TODO
+		setChanged();
+		notifyObservers();
 	}
 	
 	public int getNumero(Tipo tipo){

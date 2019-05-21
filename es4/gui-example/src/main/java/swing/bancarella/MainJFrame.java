@@ -7,7 +7,7 @@ import java.util.Observer;
 
 import javax.swing.*;
 
-public class MainJFrame extends JFrame {
+public class MainJFrame extends JFrame implements Observer {
 
 	private static final long serialVersionUID = -1946117194064716902L;
 
@@ -26,9 +26,7 @@ public class MainJFrame extends JFrame {
 	private JPanel panel2 = new JPanel();
 
 	public MainJFrame(Bancarella bancarella) {
-
-		//TODO
-
+		bancarella.addObserver(this);
 	}
 
 	public void initGUI(ProduttoreListener listener) {
@@ -67,6 +65,23 @@ public class MainJFrame extends JFrame {
 		textFields[2].setText("Sono presenti " + npat + " patate!");
 	}
 
-	//TODO
+	@Override
+	public void update(Observable o, Object arg) {
+
+		if(!(o instanceof Bancarella)){
+			throw new IllegalArgumentException();
+		}
+
+		/*
+		Bancarella bancarella = (Bancarella) o;
+		SwingUtilities.invokeLater(() -> {
+			updateGUI(bancarella.getNumero(Prodotto.Tipo.POMODORO),
+					bancarella.getNumero(Prodotto.Tipo.BASILICO),
+					bancarella.getNumero(Prodotto.Tipo.PATATA));
+		});
+		*/
+	}
+
+
 
 }

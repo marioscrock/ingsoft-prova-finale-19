@@ -26,7 +26,7 @@ public class Controller implements Observer{
 	
 	/*
 	 * Questo metodo rappresenta la vera e propria logica applicativa
-	 * In realtà parte di questa è stata messa nella classe Choice nel metodo resultAgainst
+	 * In realtà perte di questa è stata messa nella classe Choice nel metodo resultAgainst
 	 * È possibile posizionare tutta la logica all'interno del controller.
 	 */
 	private void manageRound(){

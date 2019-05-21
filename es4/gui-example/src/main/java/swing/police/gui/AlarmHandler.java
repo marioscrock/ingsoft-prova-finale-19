@@ -20,7 +20,15 @@ public class AlarmHandler implements ActionListener{
 
 	@Override
 	public void actionPerformed(ActionEvent event) {
-		//TODO
+		PoliceMainFrame.MyButton button = (PoliceMainFrame.MyButton) event.getSource();
+		try {
+			String res = vm.notificaVolanti(button.getZona());
+			frame.setText(res);
+		} catch (NessunaVolanteException e) {
+			JOptionPane.showMessageDialog(null, "Nessun volante nella zona segnalata!",
+					"Attenzione!", JOptionPane.ERROR_MESSAGE);
+		}
+
 	}	
 
 }

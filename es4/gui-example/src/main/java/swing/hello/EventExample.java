@@ -22,7 +22,17 @@ public class EventExample {
 		button.setOpaque(true);
 		button.setBorderPainted(false);
 
-		//TODO
+		button.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				button.setBackground(Color.RED);
+				button.repaint();
+			}
+		});
+
+		frame.add(button);
+		frame.pack();
+		frame.setVisible(true);
 	}
 
 	public static void main(String[] args) {

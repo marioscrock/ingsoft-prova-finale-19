@@ -33,7 +33,27 @@ public class PoliceMainFrame extends JFrame {
 	private JTextArea textArea = new JTextArea();
 	
 	public void initGUI(AlarmHandler h){
-		//TODO
+		for(int i=0;i<3;i++) {
+			panels[i] = new JPanel();
+		}
+		panels[0].add(new JLabel("Selezionare una zona:"));
+		panels[1].setLayout(new GridLayout(3,3));
+
+		for(int i = 0; i<6; i++) {
+			buttons[i] = new MyButton(i + 1);
+			panels[1].add(buttons[i]);
+			buttons[i].addActionListener(h);
+		}
+
+		panels[2].setLayout(new BorderLayout());
+		panels[2].add(textArea);
+
+		setLayout(new BorderLayout());
+		add(panels[0], BorderLayout.PAGE_START);
+		add(panels[1], BorderLayout.CENTER);
+		add(panels[2], BorderLayout.PAGE_END);
+		pack();
+		setVisible(true);
 	}
 
 	public void setText(String res) {

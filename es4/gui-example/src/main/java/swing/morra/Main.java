@@ -21,8 +21,8 @@ public class Main {
 		model = new Model();
 		modelView = new ModelView();
 
-		view = new ConsoleView(System.in, System.out);
-		//view = new SwingView();
+		//view = new ConsoleView(System.in, System.out);
+		view = new SwingView();
 
 		controller = new Controller(model, view);
 		view.addObserver(controller);

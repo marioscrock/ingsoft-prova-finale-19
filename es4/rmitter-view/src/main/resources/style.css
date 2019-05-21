@@ -1,5 +1,4 @@
-/* The background image is applied to the .root style,
-which means it is applied to the root node of the Scene instance.
+/* The background image is applied to the .root style, which means it is applied to the root node of the Scene instance.
 The style definition consists of the name of the property
 (-fx-background-image) and the value for the property (url(”background.jpg”)). */
 .root {

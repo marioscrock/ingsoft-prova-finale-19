@@ -11,7 +11,7 @@ import java.util.Scanner;
 
 public class ConsoleView extends View{
 	
-    private Scanner scanner;
+	private Scanner scanner;
 	private PrintStream output;
 	
 	public ConsoleView(InputStream inputStream, OutputStream output) {

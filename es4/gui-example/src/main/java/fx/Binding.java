@@ -35,7 +35,10 @@ public class Binding extends Application {
         txtActor.setMaxWidth(300);
         txtActor.setPromptText("Enter the name of the actor here.");
 
-        //TODO
+        Label lblRole1 = new Label("The role of ");
+        Label lblRole2 = new Label();
+        Label lblRole3 = new Label("will be played by ");
+        Label lblRole4 = new Label();
 
         GridPane grid = new GridPane();
         grid.setAlignment(Pos.CENTER);
@@ -52,12 +55,15 @@ public class Binding extends Application {
         GridPane.setFillWidth(lblCharacter, true);
         GridPane.setFillWidth(lblActor, true);
 
-        //TODO
+        HBox paneRole = new HBox(lblRole1, lblRole2, lblRole3, lblRole4);
+        paneRole.setPadding(new Insets(10));
 
         // Add the Character and Actor panes to a VBox
-        VBox pane = new VBox(10, grid); //TODO , paneRole);
+        VBox pane = new VBox(10, grid, paneRole);
 
-        //TODO
+        //Create the bindings
+        lblRole2.textProperty().bind(txtCharacter.textProperty());
+        lblRole4.textProperty().bind(txtActor.textProperty());
 
         // Set the stage
         Scene scene = new Scene(pane);

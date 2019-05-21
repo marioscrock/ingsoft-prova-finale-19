@@ -24,12 +24,39 @@ public class SwingView extends View {
 	private JLabel computerChoice = new JLabel();
 	
 	public SwingView() {
-		//TODO
+		frame = new JFrame("Morra cinese");
+		mainPanel = new JPanel(new BorderLayout(10, 10));
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		results = new JPanel();
+		results.setLayout(new BorderLayout(10, 10));
+		results.setBorder(new EmptyBorder(10, 10, 10, 10));
+		results.add(buildDataLayout(), BorderLayout.PAGE_START);
+		resultLabel = new JLabel();
+		results.add(resultLabel, BorderLayout.PAGE_END);
+		mainPanel.add(results, BorderLayout.PAGE_START);
+		
+		button = new JButton("Nuovo round!");
+		button.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				new ChoiceDialog(frame, SwingView.this);				
+			}
+		});
+		mainPanel.add(button, BorderLayout.PAGE_END);
+		
+		frame.add(mainPanel);
+		frame.pack();
 	}
 
 	private JPanel buildDataLayout() {
-		//TODO
-		return null;
+		JPanel result = new JPanel();
+		result.setLayout(new GridLayout(2, 2, 10, 10));
+		result.add(new JLabel("Tua scelta:"));
+		result.add(new JLabel("Scelta computer:"));
+		result.add(playerChoice);
+		result.add(computerChoice);
+		return result;
 	}
 
 	@Override

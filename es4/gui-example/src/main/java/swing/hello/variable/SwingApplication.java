@@ -21,6 +21,8 @@ public class SwingApplication implements ActionListener {
 
         pane.add(button);
         pane.add(label);
+
+        //REMOVE ME
         pane.setBorder(BorderFactory
                 .createEmptyBorder(30, 30, 10, 30));
 

@@ -10,7 +10,24 @@ public class Main {
 
 	public static void main(String[] args) {
 
-		//TODO
+		VolantiManager vm = new VolantiManager();
+
+		Random random = new Random();
+		random.ints(0,6)
+				.distinct()
+				.limit(random.nextInt(6))
+				.forEach(i -> vm.addVolante(new Volante(i)));
+
+		System.out.println(vm.toString());
+
+		PoliceMainFrame pf = new PoliceMainFrame();
+		AlarmHandler h = new AlarmHandler(vm,pf);
+		SwingUtilities.invokeLater(new Runnable() {
+			@Override
+			public void run() {
+				pf.initGUI(h);
+			}
+		});
 
 	}
 

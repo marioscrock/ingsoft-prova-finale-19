@@ -5,6 +5,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.beans.PropertyChangeListener;
 import java.util.Random;
 
 import javax.swing.*;
@@ -24,18 +25,25 @@ public class MouseExample {
 		 //Attention -> This is the entire window size! Margins included
 		 //https://stackoverflow.com/questions/13474795/get-the-real-size-of-a-jframe-content
 		 frame.setSize(640, 480);
-		 //TODO
+		 System.out.println(frame.getContentPane().getWidth());
+		 System.out.println(frame.getContentPane().getHeight());
 
 		 button.setBounds(245, 210, 150, 40);
+		 button.addActionListener(new ActionListener() {
+				  @Override
+				  public void actionPerformed(ActionEvent e) {
+					  button.setBackground(Color.RED);
+				  }
+			  });
 
-		 //TODO
+		button.addMouseMotionListener(new MouseHandler());
 
-		 frame.add(button);
-		 frame.setVisible(true);
+		frame.add(button);
+		frame.setVisible(true);
 
 		 //TODO
 		 //Try to remove comment on this
-		 //frame.pack();
+		 frame.pack();
 	}
 
 	public static void main(String[] args) {
