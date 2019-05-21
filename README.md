@@ -1,7 +1,5 @@
 # Esercitazioni Prova Finale (Ingegneria del Software) 2019
 
-__TODO__ Durante l'esercitazione partiremo dal codice già uploadato: è consigliato **scaricare la cartella `es4` come zip o sincronizzare la repo con git clone per martedì 21 Maggio**.
-
 Repository esercitazioni del corso: Prova Finale (Ingegneria del Software) 2019
 Prof. G. Cugola - Esercitazioni M. Scrocca
 
@@ -9,6 +7,8 @@ Le slides delle esercitazioni sono disponibili su Beep.
 Per domande o bug relativi al codice nella repository usare le Issues su Github, per tutte le altre domande utilizzare [Piazza](http://piazza.com/polimi.it/spring2019/085923/home).
 
 Ogni cartella contiene il materiale relativo alla specifica esercitazione. Nella cartella `java8` sono presenti alcuni utili esempi riguardo alcune novità introdotte in Java 8.
+
+_Credits_: Il codice di questa repository è basato sulla [repo](https://github.com/affo/ingsoft-project) e altro codice relativo a precedenti versioni del corso.
 
 ## Lesson 1 - Tools & Testing (5 Mar)
 
