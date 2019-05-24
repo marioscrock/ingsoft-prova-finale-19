@@ -8,7 +8,7 @@ Per domande o bug relativi al codice nella repository usare le Issues su Github,
 
 Ogni cartella contiene il materiale relativo alla specifica esercitazione. Nella cartella `java8` sono presenti alcuni utili esempi riguardo alcune novità introdotte in Java 8.
 
-_Credits_: Il codice di questa repository è basato sulla [repo](https://github.com/affo/ingsoft-project) e altro codice relativo a precedenti versioni del corso.
+_Credits_: Il codice di questa repository è basato sulla repo [link](https://github.com/affo/ingsoft-project) e altro codice relativo a precedenti versioni del corso.
 
 ## Lesson 1 - Tools & Testing (5 Mar)
 
