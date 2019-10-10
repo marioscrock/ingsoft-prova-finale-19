@@ -18,7 +18,7 @@ vim .gitignore # Aggiungo ignore.txt
 git status
 ```
 
-Non voglio fare commit di tutto, e.g. file che derivano dalla compilazione o file `.jar`. Posso esplicitare nel file `.gitignore`. Ogni linea in .gitignore corrisponde ad un file o un path da ignorare. File `.gitignore` deve essere committato, utile per chi scarica la mia repository.
+Non voglio fare commit di tutto, e.g. file che derivano dalla compilazione o file `.jar`. Posso esplicitare nel file `.gitignore`. Ogni linea in `.gitignore` corrisponde ad un file o un path da ignorare. File `.gitignore` deve essere committato, utile per chi scarica la mia repository.
 
 ```
 git commit -m "First commit"
